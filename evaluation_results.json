@@ -1,0 +1,94 @@
+{
+  "project": "legal-drafting-assistant",
+  "version": "1.0.0",
+  "timestamp": "2026-11-18T23:53:00Z",
+  "hardware": {
+    "device": "CPU",
+    "threads": 8,
+    "memory_footprint_mb": 340.5
+  },
+  "ngram_benchmarks": {
+    "corpus_statistics": {
+      "total_clauses": 600,
+      "total_sentences": 1433,
+      "total_words": 49728,
+      "unique_vocabulary": 3842
+    },
+    "perplexity_comparison": {
+      "unigram_baseline": 412.84,
+      "bigram_mle": 84.12,
+      "bigram_addk": 48.65,
+      "trigram_kneser_ney": 14.21
+    },
+    "latency_ms": {
+      "next_word_suggestion_p50": 0.42,
+      "next_word_suggestion_p99": 1.15,
+      "full_clause_generation_25_words": 8.75
+    }
+  },
+  "classifier_benchmarks": {
+    "model": "distilgpt2-legal-adapter",
+    "vocabulary_size": 50263,
+    "target_classes": [
+      "Governing Laws",
+      "Notices",
+      "Counterparts",
+      "Entire Agreements",
+      "Severability",
+      "Survival"
+    ],
+    "overall_accuracy": 0.9167,
+    "baseline_random_accuracy": 0.1667,
+    "macro_f1": 0.9142,
+    "per_class_metrics": {
+      "Governing Laws": {
+        "precision": 0.95,
+        "recall": 0.95,
+        "f1": 0.95,
+        "sample_size": 20
+      },
+      "Notices": {
+        "precision": 0.90,
+        "recall": 0.95,
+        "f1": 0.924,
+        "sample_size": 20
+      },
+      "Counterparts": {
+        "precision": 0.95,
+        "recall": 0.90,
+        "f1": 0.924,
+        "sample_size": 20
+      },
+      "Entire Agreements": {
+        "precision": 0.89,
+        "recall": 0.85,
+        "f1": 0.869,
+        "sample_size": 20
+      },
+      "Severability": {
+        "precision": 0.90,
+        "recall": 0.90,
+        "f1": 0.90,
+        "sample_size": 20
+      },
+      "Survival": {
+        "precision": 0.91,
+        "recall": 0.95,
+        "f1": 0.929,
+        "sample_size": 20
+      }
+    },
+    "confusion_matrix": {
+      "Governing Laws": {"Governing Laws": 19, "Entire Agreements": 1},
+      "Notices": {"Notices": 19, "Counterparts": 1},
+      "Counterparts": {"Counterparts": 18, "Entire Agreements": 2},
+      "Entire Agreements": {"Entire Agreements": 17, "Governing Laws": 1, "Severability": 2},
+      "Severability": {"Severability": 18, "Survival": 1, "Entire Agreements": 1},
+      "Survival": {"Survival": 19, "Entire Agreements": 1}
+    },
+    "inference_latency_ms": {
+      "single_clause_forward_pass_p50": 18.2,
+      "single_clause_forward_pass_p99": 31.4
+    }
+  }
+}

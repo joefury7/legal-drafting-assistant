@@ -159,8 +159,8 @@ def main(argv: list[str] | None = None) -> None:
     )
     sub = parser.add_subparsers(dest="command", required=True)
 
-    # 1. hello (starter check)
-    sub.add_parser("hello", help="check that everything is wired up")
+    # Diagnostic healthcheck
+    sub.add_parser("hello", help="verify assistant environment and wiring")
 
     # 2. draft
     p_draft = sub.add_parser("draft", help="generate a legal clause from seed and tag its type")

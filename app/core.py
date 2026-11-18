@@ -8,8 +8,7 @@ from app.default_corpus import CURATED_LEGAL_CLAUSES, get_default_corpus_text
 from app.ngram import LegalNGramLM, to_sentences, to_tokens
 
 
-# --- Milestone 1: Prepare a small legal text corpus for n-gram training.
-# Hint: Corpus preparation from the 'Build a Next-Word Predictor from Scratch' drill.
+# --- Milestone 1: Prepare a specialized legal text corpus for n-gram modeling.
 def milestone_1(corpus_path: str | Path | None = None) -> dict:
     """Prepares and validates the legal text corpus for N-gram modeling.
 
@@ -38,8 +37,7 @@ def milestone_1(corpus_path: str | Path | None = None) -> dict:
     }
 
 
-# --- Milestone 2: Implement the n-gram next-word predictor.
-# Hint: Implement the n-gram logic from the 'Build a Next-Word Predictor from Scratch' drill.
+# --- Milestone 2: Implement the legal n-gram next-word predictor with Kneser-Ney smoothing.
 def milestone_2(corpus_text: str | None = None, n: int = 3) -> LegalNGramLM:
     """Initializes and trains the legal N-gram language model with Kneser-Ney smoothing.
 
@@ -59,8 +57,7 @@ def milestone_2(corpus_text: str | None = None, n: int = 3) -> LegalNGramLM:
     return lm
 
 
-# --- Milestone 3: Load the pre-trained GPT-2 model and fine-tuned adapter for legal clause tagging.
-# Hint: Load the model and adapter as shown in the 'Fine-Tune GPT-2 to Tag Legal Contract Clauses' drill.
+# --- Milestone 3: Initialize the GPT-2 legal clause tagger with atomic classification tokens.
 def milestone_3(model_path: str | Path | None = None) -> LegalClauseClassifier:
     """Loads the pre-trained/fine-tuned GPT-2 model with atomic legal label tokens.
 
@@ -73,8 +70,7 @@ def milestone_3(model_path: str | Path | None = None) -> LegalClauseClassifier:
     return LegalClauseClassifier(model_path=model_path)
 
 
-# --- Milestone 4: Create a CLI interface to generate text and then classify the generated text.
-# Hint: Combine the n-gram generation and GPT-2 classification into a command-line interface.
+# --- Milestone 4: Dual-engine pipeline combining n-gram drafting and GPT-2 clause tagging.
 def milestone_4(
     seed_phrase: str = "this agreement shall be governed",
     max_words: int = 25,
@@ -104,8 +100,7 @@ def milestone_4(
     }
 
 
-# --- Milestone 5: Evaluate classification accuracy on example clauses.
-# Hint: Apply evaluation techniques from the 'Fine-Tune GPT-2 to Tag Legal Contract Clauses' drill.
+# --- Milestone 5: Empirical evaluation suite across benchmark contract clauses.
 def milestone_5(
     classifier: LegalClauseClassifier | None = None,
     test_clauses: list[dict] | None = None,
